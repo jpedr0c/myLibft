@@ -3,23 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+        */
+/*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:29:33 by jocardos          #+#    #+#             */
-/*   Updated: 2022/05/31 16:45:03 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/06/02 12:31:59 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	length(unsigned int n)
+static	size_t	length(unsigned int n)
 {
 	size_t	i;
 
 	i = 0;
-	if (n == 0)
-		i++;
-	while (n)
+	while (n != 0)
 	{
 		i++;
 		n /= 10;
@@ -35,14 +33,13 @@ char	*ft_utoa(unsigned int n)
 	len = length(n);
 	result = malloc(sizeof(char) * (len + 1));
 	if (!result)
-		return (NULL);
-	if (n == 0)
-		result[0] = '0';
-	result[len--] = '\0';
-	while (n)
+		return (0);
+	result[len] = '\0';
+	while (n != 0)
 	{
-		result[len--] = (n % 10) + 48;
+		result[len - 1] = (n % 10) + 48;
 		n /= 10;
+		len--;
 	}
 	return (result);
 }
