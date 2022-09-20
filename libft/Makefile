@@ -15,6 +15,8 @@ SET_COLOR	= \033[0;39m
 GREEN		= \033[0;32m
 BLUE		= \033[0;34m
 CYAN		= \033[0;36m
+YELLOW		= \033[0;33m
+MAGENTA		=	\033[0;95m
 BG_GREEN	= \033[42;1;37m
 
 #Sources
