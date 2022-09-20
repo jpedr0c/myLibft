@@ -50,9 +50,9 @@ all:	$(NAME)
 $(NAME):	$(OBJ)
 			@$(AR) $(NAME) $(OBJ)
 			@echo -e -n "$(WHITE)]$(SET_COLOR)"
-			@echo -e -n " $(GREEN)->$(SET_COLOR) "
-			@echo -e -n "$(GREEN)Compilação concluída$(SET_COLOR) "
-			@echo -e "$(GREEN)✅$(SET_COLOR)"
+			@echo -e -n " $(GREEN)->$(SET_COLOR)"
+			@echo -e -n "$(GREEN) Completed$(SET_COLOR)"
+			@echo -e "$(GREEN) ✅$(SET_COLOR)"
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c | ${OBJF}
 			@echo -e -n "$(GREEN)✓$(SET_COLOR)"
@@ -68,15 +68,15 @@ $(OBJF):
 clean:
 		@$(RM) -r $(OBJ_DIR)
 		@$(RM) $(OBJF)
-		@echo -e -n "$(BLUE)Arquivos objetos$(SET_COLOR)$(GREEN)  -> Excluídos$(SET_COLOR) "
+		@echo -e -n "$(MAGENTA)[LIBFT]:$(SET_COLOR)$(BLUE) Object files$(SET_COLOR)$(GREEN)  => Cleaned$(SET_COLOR)"
 		@echo -e "$(GREEN)🗑️$(SET_COLOR)"
 
 fclean:	clean	
 		@$(RM) $(NAME)
-		@echo -e -n "$(CYAN)Arquivos executáveis$(SET_COLOR)$(GREEN)  -> Excluídos$(SET_COLOR) "
+		@echo -e -n "$(MAGENTA)[LIBFT]:$(SET_COLOR)$(BLUE) Object files$(SET_COLOR)$(GREEN)  => Cleaned$(SET_COLOR)"
 		@echo -e "$(GREEN)🗑️$(SET_COLOR)"
 
 re:	fclean start
-	@echo -e -n "\n $(BG_GREEN) => Arquivos excluídos e recompilados <= $(SET_COLOR)\n"
+	@echo -e "\n$(BG_GREEN) => Cleaned and rebuilt everything <= $(SET_COLOR)"
 
-.PHONY:	all bonus  clean fclean re
+.PHONY:	all bonus clean fclean re
